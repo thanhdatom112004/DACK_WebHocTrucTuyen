@@ -34,8 +34,7 @@ mongoose
     process.exit(1);
   });
 
-// API routes sẽ mount tại các feature sau (đặt trước static)
-// app.use("/api/auth", require("./routes/auth"));
+app.use("/api/auth", require("./routes/auth"));
 
 const uploadsDir = path.join(__dirname, "uploads");
 if (!fs.existsSync(uploadsDir)) {
