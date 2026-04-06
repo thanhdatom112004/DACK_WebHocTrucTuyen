@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Admin - Quản lý khóa học</title>
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body class="admin-body">
+  <nav class="navbar navbar-expand-lg navbar-dark admin-navbar">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="admin-dashboard.html">
+        <span class="admin-brand-mark"><i class="fa fa-shield"></i></span>
+        <span class="text-white"><span class="font-weight-bold">Study</span>Lab<small class="admin-brand-sub">Quản trị</small></span>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Menu">
+        <span class="fa fa-bars text-white"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="ftco-nav">
+        <ul class="navbar-nav flex-wrap mx-lg-auto mt-2 mt-lg-0 admin-nav-links">
+          <li class="nav-item"><a class="nav-link" href="admin-dashboard.html">Tổng quan</a></li>
+          <li class="nav-item active"><a class="nav-link" href="admin-courses.html">Khóa học</a></li>
+          <li class="nav-item"><a class="nav-link" href="admin-categories.html">Category</a></li>
+          <li class="nav-item"><a class="nav-link" href="admin-users.html">Học viên</a></li>
+          <li class="nav-item"><a class="nav-link" href="admin-lesson-quizzes.html">Quiz</a></li>
+          <li class="nav-item"><a class="nav-link" href="admin-payment-orders.html">Thanh toán</a></li>
+          <li class="nav-item"><a class="nav-link" href="admin-chat.html">Chat</a></li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a href="index.html" class="nav-link text-white-50" title="Trang chủ"><i class="fa fa-home"></i></a></li>
+          <li class="nav-item"><a href="login.html" class="nav-link">Đăng nhập</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="ftco-section">
+    <div class="container">
+      <div id="ac-alert" class="alert d-none" role="alert"></div>
+      <div class="admin-page-header">
+        <h1 class="admin-page-title">Quản lý khóa học</h1>
+        <p class="admin-breadcrumb"><a href="admin-dashboard.html">Tổng quan</a> / Khóa học</p>
+      </div>
+
+      <div class="card admin-card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Tạo / Cập nhật khóa học</h5>
+          <form id="course-form">
+            <input type="hidden" id="course-id" />
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label>Tiêu đề</label>
+                <input id="course-title" class="form-control" required />
+              </div>
+              <div class="form-group col-md-3">
+                <label>Giá (VND)</label>
+                <input
+                  id="course-price"
+                  type="number"
+                  min="0"
+                  step="1"
+                  max="999999999999"
+                  class="form-control"
+                  value="0"
+                  inputmode="numeric"
+                  autocomplete="off"
+                />
+              </div>
+              <div class="form-group col-md-3">
+                <label>Category</label>
+                <select id="course-category" class="form-control">
+                  <option value="">-- Chọn category --</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Mô tả</label>
+              <textarea id="course-description" class="form-control" rows="2"></textarea>
+            </div>
+            <div class="form-group">
+              <label>Hình ảnh (URL)</label>
+              <input id="course-images" class="form-control" />
+            </div>
+            <div class="form-group">
+              <label>Tải ảnh từ máy</label>
+              <input id="course-image-file" type="file" accept="image/*" class="form-control-file" />
+              <small class="form-text text-muted">
+                Nếu chọn file ảnh, hệ thống sẽ ưu tiên file này thay vì URL.
+              </small>
+            </div>
+            <div class="form-group d-none" id="course-image-preview-group">
+              <label>Preview</label>
+              <div>
+                <img
+                  id="course-image-preview"
+                  alt="Preview"
+                  style="width: 120px; height: 80px; object-fit: cover; border: 1px solid #ddd; border-radius: 6px; display: none;"
+                />
+              </div>
+            </div>
+            <hr />
+            <h6 class="mb-2">Bài học video</h6>
+            <div id="video-list" class="mb-2"></div>
+            <div class="mb-3">
+              <button class="btn btn-sm btn-outline-primary" type="button" id="add-video-btn">
+                + Thêm bài video
+              </button>
+            </div>
+            <button class="btn btn-primary rounded-pill px-4" type="submit">Lưu</button>
+            <button class="btn btn-outline-secondary rounded-pill px-3" type="button" id="course-reset">Làm mới</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="table-responsive admin-table-wrap">
+        <table class="table table-hover table-bordered table-sm mb-0">
+          <thead>
+            <tr>
+              <th>Tiêu đề</th>
+              <th>Giá</th>
+              <th>Category</th>
+              <th style="width: 180px">Hành động</th>
+            </tr>
+          </thead>
+          <tbody id="ac-tbody">
+            <tr><td colspan="4">Đang tải...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth-nav.js"></script>
+  <script src="js/admin-guard.js"></script>
+  <script src="js/admin-courses.js"></script>
+</body>
+</html>

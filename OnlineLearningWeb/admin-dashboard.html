@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Quản trị - StudyLab</title>
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body class="admin-body">
+  <nav class="navbar navbar-expand-lg navbar-dark admin-navbar">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="admin-dashboard.html">
+        <span class="admin-brand-mark"><i class="fa fa-shield"></i></span>
+        <span class="text-white"><span class="font-weight-bold">Study</span>Lab<small class="admin-brand-sub">Quản trị</small></span>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Menu">
+        <span class="fa fa-bars text-white"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="ftco-nav">
+        <ul class="navbar-nav flex-wrap mx-lg-auto mt-2 mt-lg-0 admin-nav-links">
+          <li class="nav-item active"><a class="nav-link" href="admin-dashboard.html">Tổng quan</a></li>
+          <li class="nav-item"><a class="nav-link" href="admin-courses.html">Khóa học</a></li>
+          <li class="nav-item"><a class="nav-link" href="admin-categories.html">Category</a></li>
+          <li class="nav-item"><a class="nav-link" href="admin-users.html">Học viên</a></li>
+          <li class="nav-item"><a class="nav-link" href="admin-lesson-quizzes.html">Quiz</a></li>
+          <li class="nav-item"><a class="nav-link" href="admin-payment-orders.html">Thanh toán</a></li>
+          <li class="nav-item"><a class="nav-link" href="admin-chat.html">Chat</a></li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a href="index.html" class="nav-link text-white-50" title="Trang chủ"><i class="fa fa-home"></i></a></li>
+          <li class="nav-item"><a href="login.html" class="nav-link">Đăng nhập</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="ftco-section">
+    <div class="container">
+      <div id="admin-alert" class="alert d-none" role="alert"></div>
+      <div class="admin-hero">
+        <h2>Khu vực quản trị</h2>
+        <p>Quản lý khóa học, người dùng, danh mục, quiz và xác nhận thanh toán tập trung tại một nơi.</p>
+      </div>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <a href="admin-courses.html" class="admin-menu-card bg-admin-courses">
+            <span class="icon-wrap"><i class="fa fa-book"></i></span>
+            <span class="label-wrap">
+              <strong>Quản lý khóa học</strong>
+              <small>Tạo, sửa, xóa và cập nhật nội dung</small>
+            </span>
+          </a>
+        </div>
+        <div class="col-md-6 mb-3">
+          <a href="admin-users.html" class="admin-menu-card bg-admin-users">
+            <span class="icon-wrap"><i class="fa fa-users"></i></span>
+            <span class="label-wrap">
+              <strong>Quản lý người dùng</strong>
+              <small>Theo dõi tài khoản và trạng thái</small>
+            </span>
+          </a>
+        </div>
+        <div class="col-md-6 mb-3">
+          <a href="admin-categories.html" class="admin-menu-card bg-admin-categories">
+            <span class="icon-wrap"><i class="fa fa-tags"></i></span>
+            <span class="label-wrap">
+              <strong>Quản lý category</strong>
+              <small>Phân loại khóa học rõ ràng</small>
+            </span>
+          </a>
+        </div>
+        <div class="col-md-6 mb-3">
+          <a href="admin-lesson-quizzes.html" class="admin-menu-card bg-admin-quizzes">
+            <span class="icon-wrap"><i class="fa fa-question-circle"></i></span>
+            <span class="label-wrap">
+              <strong>Quiz / Flashcard theo bài học</strong>
+              <small>Quản lý bộ câu hỏi đánh giá</small>
+            </span>
+          </a>
+        </div>
+        <div class="col-md-6 mb-3">
+          <a href="admin-payment-orders.html" class="admin-menu-card bg-admin-payments">
+            <span class="icon-wrap"><i class="fa fa-credit-card"></i></span>
+            <span class="label-wrap">
+              <strong>Quản lý thanh toán</strong>
+              <small>Xác nhận đơn chuyển khoản từ học viên</small>
+            </span>
+          </a>
+        </div>
+        <div class="col-md-6 mb-3">
+          <a href="admin-chat.html" class="admin-menu-card bg-admin-chat">
+            <span class="icon-wrap"><i class="fa fa-comments"></i></span>
+            <span class="label-wrap">
+              <strong>Chat hỗ trợ</strong>
+              <small>Nhắn tin 1–1 với học viên (Socket.IO)</small>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth-nav.js"></script>
+  <script src="js/admin-guard.js"></script>
+</body>
+</html>

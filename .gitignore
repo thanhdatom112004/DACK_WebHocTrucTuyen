@@ -301,6 +301,11 @@ FakesAssemblies/
 .ntvs_analysis.dat
 node_modules/
 
+# Backend (Node/Express) — không ignore entry www.js trong backend/bin
+!backend/bin/
+!backend/bin/www.js
+backend/uploads/
+
 # Visual Studio 6 build log
 *.plg
 
