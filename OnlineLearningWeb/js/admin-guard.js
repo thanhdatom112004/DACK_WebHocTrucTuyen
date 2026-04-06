@@ -6,6 +6,7 @@
     "admin-users.html": "au-alert",
     "admin-payment-orders.html": "apo-alert",
     "admin-chat.html": "achat-alert",
+    "admin-lesson-quizzes.html": "alq-alert",
   };
 
   function showAlert(msg) {

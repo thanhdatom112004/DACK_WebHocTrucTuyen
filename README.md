@@ -6,15 +6,22 @@
 - **`GET /api/health`** → `{ "ok": true }`.
 - Phục vụ static **`OnlineLearningWeb/`** cùng origin với API.
 - **`backend/uploads`** phục vụ tại `/uploads`.
-- **Chưa** mount `/api/auth`, `/api/courses`, … (các feature sau).
+## Feature #2 — Xác thực & phân quyền (clone từ `DACK_OnlineLearningWEB`)
+
+- API: **`POST /api/auth/register`**, **`POST /api/auth/login`** (cookie httpOnly + token JSON), **`GET /api/auth/me`** (có **`roleName`**), **`POST /api/auth/logout`**.
+- Model **User** / **Role**, middleware JWT **`checkLogin`**.
+- **`npm run seed:roles`** — tạo role `ADMIN` / `USER`; tùy chọn user admin qua **`ADMIN_*`** trong `.env`.
+- Frontend: `js/login-page.js`, `js/index-register.js`, `js/api.js`, `js/auth-nav.js`, `js/admin-guard.js` — sau đăng nhập: **ADMIN** → `admin-dashboard.html`, **USER** → `course.html`.
+- Cần **`JWT_SECRET`** trong `backend/.env`.
 
 ## Chạy
 
 1. `cd backend`
-2. Copy `backend/.env.example` → `backend/.env`, điền `MONGODB_URI` (Atlas hoặc local).
+2. Copy `backend/.env.example` → `backend/.env`, điền `MONGODB_URI` và **`JWT_SECRET`**.
 3. `npm install`
-4. `npm run dev` hoặc `npm start`
-5. Mở **`http://localhost:3001/`** — không mở HTML bằng `file://`.
+4. `npm run seed:roles` (ít nhất một lần)
+5. `npm run dev` hoặc `npm start`
+6. Mở **`http://localhost:3001/`** — không mở HTML bằng `file://`.
 
 ## Cấu trúc
 
