@@ -54,6 +54,17 @@
 - **`admin-lesson-quizzes.html`** + **`js/admin-lesson-quizzes.js`** — chọn khóa → chọn bài (video), thêm câu **MCQ** / **flashcard**, lưu qua **`OLApi.lessonQuizUpsert`**, tải đáp án qua **`lessonQuizGetFull`**, xóa mềm qua **`lessonQuizDelete`**. Bảo vệ admin: **`js/admin-guard.js`** (`alq-alert`).
 - **`CAP-NHAT-ENROLLMENT-QUIZ.md`** — mô tả middleware enrollment, route quiz, hành vi `course-watch.js`, checklist kiểm tra.
 
+## Feature #8 — Hồ sơ & bảo mật (`feature/08-profile-security`)
+
+- **`PUT /api/auth/profile`** — cập nhật username, fullName, avatarUrl (không đổi email).
+- **`POST /api/auth/profile/avatar`** — multipart `file` → `/uploads/chat/`.
+- **`POST /api/auth/changepassword`** — đổi mật khẩu (tối thiểu 8 ký tự; pre-save hash bcrypt).
+- **`POST /api/auth/forgotpassword`** / **`POST /api/auth/resetpassword`** — OTP 6 số qua email (cần **SMTP** trong `.env`).
+- **`POST /api/auth/verify-email/send-otp`** / **`confirm`** — xác thực email khi đăng nhập.
+- **`utils/mailHandler.js`**, **`utils/otp.js`**; **`npm run test:smtp`** — kiểm tra gửi mail.
+- **`GET/DELETE /api/users`** — ADMIN (danh sách / xóa mềm), dùng với **`admin-users.html`**.
+- Frontend: **`profile.html`**, **`js/profile-page.js`**, **`forgot-password.html`**, **`js/forgot-password.js`**, **`login.html`** link quên mật khẩu.
+
 ## Chạy
 
 1. `cd backend`

@@ -5,6 +5,7 @@
   "main": "app.js",
   "scripts": {
     "seed:roles": "node ./scripts/seedRoles.js",
+    "test:smtp": "node ./scripts/testSmtp.js",
     "dev": "nodemon ./bin/www.js",
     "start": "node ./bin/www.js"
   },
@@ -18,7 +19,8 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^9.1.5",
     "morgan": "^1.10.0",
-    "multer": "^2.1.1"
+    "multer": "^2.1.1",
+    "nodemailer": "^6.9.15"
   },
   "devDependencies": {
     "nodemon": "^3.1.3"
