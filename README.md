@@ -33,6 +33,13 @@
 - **`utils/uploadHandler.js`**, **`utils/titleHandler.js`**, model **`inventories`**.
 - Frontend: **`admin-courses.html`** + **`js/admin-courses.js`**; **`course.html`** đã tải được danh sách qua **`OLApi.courses()`**.
 
+## Feature #5 — Giỏ hàng & thanh toán (clone từ `DACK_OnlineLearningWEB`, nhánh `feature/05-cart-payment`)
+
+- **`/api/carts`** — `GET /get-cart`, `POST /add-cart`, `POST /add-one`, `POST /reduce`, `POST /remove`, `POST /checkout` (đều cần đăng nhập). Checkout demo: ghi **enrollment**, tăng **soldCount** inventory, xóa giỏ.
+- **`/api/payment-orders`** — `POST /` tạo đơn từ giỏ (mã chuyển khoản); `GET /` (ADMIN) danh sách; `POST /:id/confirm` (ADMIN) xác nhận → enrollment + inventory + xóa giỏ.
+- Models **`carts`**, **`paymentOrders`**, **`enrollments`**.
+- Frontend: **`cart.html`**, **`payment.html`**, **`admin-payment-orders.html`** + **`js/cart-page.js`**, **`js/api.js`** (`OLApi.cart*`, `paymentOrder*`).
+
 ## Chạy
 
 1. `cd backend`
