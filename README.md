@@ -72,14 +72,26 @@
 - Model **`messages`**, **`controllers/messages`**, **`utils/chatHandler.js`**, **`utils/messageSocketEmit.js`**, **`utils/supportUser.js`** (inbox hỗ trợ hoặc **`SUPPORT_USER_ID`** trong `.env`).
 - Frontend: **`js/chat-widget.js`** (Socket.IO client), **`admin-chat.html`** + **`js/admin-chat.js`**.
 
+## Feature #10 — Cấu hình & kiểm thử (`feature/10-config-test`)
+
+- **`app.js`** — thứ tự giống gốc: mount toàn bộ **`/api/*`** trước, sau đó **`/uploads`**, **`GET /api/health`**, rồi static **`OnlineLearningWeb/`**.
+- **`GET /api/roles`** — CRUD role (ADMIN): **`routes/roles.js`**, mount **`/api/roles`**.
+- **Script kiểm tra**
+  - **`npm run check:env`** — `scripts/checkEnv.js`: **`JWT_SECRET`**, **`MONGODB_URI`** (hoặc bộ Atlas trong `config/mongoUri.js`).
+  - **`npm run test:smoke`** — `scripts/smokeTest.js`: gọi **`GET /api/health`** (cần server đang chạy; mặc định port **`PORT`** hoặc **3001**).
+  - Giữ **`npm run test:smtp`** (feature #8) khi cần kiểm tra SMTP.
+- **`.gitignore`** — bỏ qua **`.env`**, **`node_modules`**, **`backend/uploads/`**.
+
 ## Chạy
 
 1. `cd backend`
 2. Copy `backend/.env.example` → `backend/.env`, điền `MONGODB_URI` và **`JWT_SECRET`**.
 3. `npm install`
 4. `npm run seed:roles` (ít nhất một lần)
-5. `npm run dev` hoặc `npm start`
-6. Mở **`http://localhost:3001/`** — không mở HTML bằng `file://`.
+5. (Tuỳ chọn) `npm run check:env` — xác nhận biến môi trường tối thiểu.
+6. `npm run dev` hoặc `npm start`
+7. (Tuỳ chọn) terminal khác: `npm run test:smoke` — kiểm tra **`GET /api/health`**.
+8. Mở **`http://localhost:3001/`** — không mở HTML bằng `file://`.
 
 ## Cấu trúc
 
