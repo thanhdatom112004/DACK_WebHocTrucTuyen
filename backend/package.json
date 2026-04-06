@@ -6,6 +6,8 @@
   "scripts": {
     "seed:roles": "node ./scripts/seedRoles.js",
     "test:smtp": "node ./scripts/testSmtp.js",
+    "check:env": "node ./scripts/checkEnv.js",
+    "test:smoke": "node ./scripts/smokeTest.js",
     "dev": "nodemon ./bin/www.js",
     "start": "node ./bin/www.js"
   },
