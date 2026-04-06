@@ -46,7 +46,13 @@
 - **`middleware/enrollmentHandler.js`** — `requireCourseEnrollment`: ADMIN hoặc đã có enrollment mới gọi quiz.
 - **`/api/lesson-quizzes/...`** — quiz theo bài (video): GET làm bài, POST submit, GET my-stats; ADMIN: GET `/full`, PUT, DELETE (soft).
 - Models **`lessonQuizzes`**, **`lessonQuizAttempts`**.
-- Frontend: **`course-watch.html`** + **`js/course-watch.js`**, **`my-courses.html`** + **`js/my-courses-page.js`**; **`course.html`** / **`index.html`** dùng `enrollmentsMine()` để badge “Đã đăng ký”.
+- Frontend: **`course-watch.html`** + **`js/course-watch.js`**, **`my-courses.html`** + **`js/my-courses-page.js`**; **`course.html`** / **`index.html`** dùng `enrollmentsMine()` để badge “Đã đăng ký”. Trang **admin soạn quiz** nằm ở Feature #7.
+
+## Feature #7 — Quiz bài học (`feature/07-quizzes`)
+
+- **API** `GET/POST .../api/lesson-quizzes/...` đã nằm trong Feature #6; feature này gói **quản trị quiz** và **tài liệu nghiệp vụ**.
+- **`admin-lesson-quizzes.html`** + **`js/admin-lesson-quizzes.js`** — chọn khóa → chọn bài (video), thêm câu **MCQ** / **flashcard**, lưu qua **`OLApi.lessonQuizUpsert`**, tải đáp án qua **`lessonQuizGetFull`**, xóa mềm qua **`lessonQuizDelete`**. Bảo vệ admin: **`js/admin-guard.js`** (`alq-alert`).
+- **`CAP-NHAT-ENROLLMENT-QUIZ.md`** — mô tả middleware enrollment, route quiz, hành vi `course-watch.js`, checklist kiểm tra.
 
 ## Chạy
 
