@@ -40,6 +40,14 @@
 - Models **`carts`**, **`paymentOrders`**, **`enrollments`**.
 - Frontend: **`cart.html`**, **`payment.html`**, **`admin-payment-orders.html`** + **`js/cart-page.js`**, **`js/api.js`** (`OLApi.cart*`, `paymentOrder*`).
 
+## Feature #6 — Đăng ký & xem bài (`feature/06-enrollment-watch`)
+
+- **`GET /api/enrollments/mine`** — danh sách khóa đã mua (populate course + category).
+- **`middleware/enrollmentHandler.js`** — `requireCourseEnrollment`: ADMIN hoặc đã có enrollment mới gọi quiz.
+- **`/api/lesson-quizzes/...`** — quiz theo bài (video): GET làm bài, POST submit, GET my-stats; ADMIN: GET `/full`, PUT, DELETE (soft).
+- Models **`lessonQuizzes`**, **`lessonQuizAttempts`**.
+- Frontend: **`course-watch.html`** + **`js/course-watch.js`**, **`my-courses.html`** + **`js/my-courses-page.js`**; **`course.html`** / **`index.html`** dùng `enrollmentsMine()` để badge “Đã đăng ký”.
+
 ## Chạy
 
 1. `cd backend`
