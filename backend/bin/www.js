@@ -2,11 +2,13 @@
 
 const http = require("http");
 const app = require("../app");
+const { SocketServer } = require("../utils/chatHandler");
 
 const port = normalizePort(process.env.PORT || "3001");
 app.set("port", port);
 
 const server = http.createServer(app);
+SocketServer(server, app);
 server.listen(port);
 server.on("error", onError);
 server.on("listening", onListening);
