@@ -1,0 +1,21 @@
+{
+  "name": "webhoctructuyen-backend",
+  "version": "1.0.0",
+  "private": true,
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon ./bin/www.js",
+    "start": "node ./bin/www.js"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^17.2.1",
+    "express": "^4.19.2",
+    "http-errors": "^2.0.0",
+    "mongoose": "^9.1.5",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.3"
+  }
+}

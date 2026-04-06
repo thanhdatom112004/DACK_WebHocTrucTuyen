@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Thanh toán chuyển khoản - StudyLab</title>
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/chat-widget.css" />
+  <style>
+    .pay-card {
+      border-radius: 10px;
+      min-height: 280px;
+    }
+    .pay-title {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+    .pay-info-line {
+      margin-bottom: 0.5rem;
+      line-height: 1.5;
+    }
+    .pay-qr-wrap {
+      min-height: 280px;
+    }
+    .pay-qr-image {
+      width: 260px;
+      max-width: 100%;
+      border-radius: 8px;
+      border: 1px solid #e0e0e0;
+      background: #fff;
+      padding: 6px;
+    }
+    .pay-bottom-card {
+      border-radius: 10px;
+      min-height: 170px;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><span>Study</span>Lab</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav">
+        <span class="oi oi-menu"></span> Menu
+      </button>
+      <div class="collapse navbar-collapse" id="ftco-nav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a href="index.html" class="nav-link">Trang chủ</a></li>
+          <li class="nav-item"><a href="course.html" class="nav-link">Khóa học</a></li>
+          <li class="nav-item"><a href="cart.html" class="nav-link">Giỏ đăng ký</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link">Giới thiệu</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Liên hệ</a></li>
+          <li class="nav-item"><a href="login.html" class="nav-link">Đăng nhập</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_2.jpg');">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row no-gutters slider-text align-items-end justify-content-center">
+        <div class="col-md-9 ftco-animate pb-5 text-center">
+          <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Thanh toán</span></p>
+          <h1 class="mb-0 bread">Thanh toán chuyển khoản</h1>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ftco-section">
+    <div class="container">
+      <div id="pay-alert" class="alert d-none mb-3" role="alert"></div>
+
+      <div class="row">
+        <div class="col-md-7 mb-4">
+          <div class="card border-0 shadow-sm h-100 pay-card">
+            <div class="card-body">
+              <h4 class="pay-title">Thông tin chuyển khoản</h4>
+              <p class="pay-info-line"><strong>Ngân hàng:</strong> TECHCOMBANK</p>
+              <p class="pay-info-line"><strong>Tên tài khoản:</strong> Nguyễn Lê Thành Đạt</p>
+              <p class="pay-info-line"><strong>Số tài khoản:</strong> 19038491122011</p>
+              <p class="pay-info-line mb-3">
+                <strong>Nội dung chuyển khoản:</strong>
+                <span id="pay-transfer-note" class="text-primary"></span>
+              </p>
+              <p class="text-muted small mb-0">
+                Vui lòng chuyển đúng số tiền và ghi <strong>đúng nội dung</strong> để hệ thống đối soát.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-5 mb-4">
+          <div class="card border-0 shadow-sm h-100 text-center pay-card">
+            <div class="card-body d-flex flex-column justify-content-center pay-qr-wrap">
+              <h5 class="mb-3">Quét mã QR để chuyển khoản</h5>
+              <div class="mb-3">
+                <img
+                  id="pay-qr-image"
+                  src="https://img.vietqr.io/image/techcombank-19038491122011-qr_only.png?accountName=NGUYEN%20LE%20THANH%20DAT"
+                  alt="QR chuyển khoản"
+                  class="img-fluid mx-auto d-block pay-qr-image"
+                />
+              </div>
+              <p class="small text-muted">
+                Bạn có thể dùng app ngân hàng/ ví điện tử để quét mã.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-md-8 mb-3">
+          <div class="card border-0 shadow-sm pay-bottom-card">
+            <div class="card-body">
+              <h5 class="mb-3">Tổng đơn hàng</h5>
+              <p class="mb-1"><strong>Tổng tiền:</strong> <span id="pay-total" class="text-primary">0đ</span></p>
+              <p class="mb-0 text-muted small">
+                Sau khi admin xác nhận thanh toán, các khóa học sẽ được mở trong mục
+                <a href="my-courses.html">Khóa học đã mua</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-3 d-flex align-items-stretch">
+          <div class="card border-0 shadow-sm w-100 pay-bottom-card">
+            <div class="card-body d-flex flex-column justify-content-between">
+              <div>
+                <h5 class="mb-3">Xác nhận</h5>
+                <p class="small text-muted">
+                  Sau khi đã chuyển khoản, bấm nút dưới đây để gửi yêu cầu xác nhận cho admin.
+                </p>
+              </div>
+              <button id="pay-confirm-btn" type="button" class="btn btn-success btn-lg btn-block mt-2">
+                Tôi đã chuyển khoản
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="ftco-footer ftco-no-pt">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-md pt-5">
+          <div class="ftco-footer-widget pt-md-5 mb-4">
+            <h2 class="ftco-heading-2">Thanh toán chuyển khoản</h2>
+            <p>Chuyển đúng nội dung đơn hàng. Sau khi admin xác nhận, khóa học sẽ hiển thị tại <a href="my-courses.html">Khóa học đã mua</a>.</p>
+          </div>
+        </div>
+        <div class="col-md pt-5">
+          <div class="ftco-footer-widget pt-md-5 mb-4 ml-md-5">
+            <h2 class="ftco-heading-2">Liên kết</h2>
+            <ul class="list-unstyled">
+              <li><a href="cart.html" class="py-2 d-block">Giỏ đăng ký</a></li>
+              <li><a href="course.html" class="py-2 d-block">Khóa học</a></li>
+              <li><a href="contact.html" class="py-2 d-block">Liên hệ</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <p>© <script>document.write(new Date().getFullYear());</script> StudyLab — Đồ án học trực tuyến. Giao diện dựa trên <a href="https://colorlib.com" target="_blank" rel="noopener">Colorlib</a>.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth-nav.js"></script>
+  <script src="https://cdn.socket.io/4.8.1/socket.io.min.js" crossorigin="anonymous"></script>
+  <script src="js/chat-widget.js"></script>
+  <script src="js/payment-page.js"></script>
+</body>
+</html>
+

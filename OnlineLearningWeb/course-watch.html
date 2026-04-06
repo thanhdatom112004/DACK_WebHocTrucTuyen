@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Xem khóa học — StudyLab</title>
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/chat-widget.css" />
+  <link rel="stylesheet" href="css/course-watch.css" />
+</head>
+<body class="cw-body">
+  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><span>Study</span>Lab</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Menu">
+        <span class="oi oi-menu"></span> Menu
+      </button>
+      <div class="collapse navbar-collapse" id="ftco-nav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a href="index.html" class="nav-link">Trang chủ</a></li>
+          <li class="nav-item"><a href="course.html" class="nav-link">Khóa học</a></li>
+          <li class="nav-item"><a href="cart.html" class="nav-link">Giỏ đăng ký</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link">Giới thiệu</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Liên hệ</a></li>
+          <li class="nav-item"><a href="login.html" class="nav-link">Đăng nhập</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="cw-hero">
+    <div class="container">
+      <a href="course.html" class="cw-back-link"><span class="fa fa-arrow-left"></span> Danh sách khóa học</a>
+      <h1 id="cw-title" class="cw-title">Đang tải khóa học...</h1>
+      <p id="cw-desc" class="cw-desc"></p>
+    </div>
+  </header>
+
+  <section class="cw-section">
+    <div class="container">
+      <div id="cw-alert" class="alert d-none rounded-lg border-0 shadow-sm" role="alert"></div>
+
+      <div class="row align-items-start">
+        <div class="col-lg-8 mb-4 mb-lg-0">
+          <div class="cw-player-shell">
+            <div id="cw-player-wrap" class="cw-player-wrap">
+              <div class="cw-player-inner">
+                <video
+                  id="cw-player"
+                  class="w-100"
+                  controls
+                  playsinline
+                  style="display:none;background:#000;"
+                ></video>
+                <iframe
+                  id="cw-youtube"
+                  class="w-100"
+                  title="YouTube video"
+                  style="display:none;border:0;"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                  referrerpolicy="strict-origin-when-cross-origin"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <aside class="cw-sidebar">
+            <div class="cw-sidebar-head">
+              <h2 class="cw-sidebar-title">
+                <span class="fa fa-list-ul mr-2" aria-hidden="true"></span>
+                Nội dung bài học
+              </h2>
+            </div>
+            <div class="cw-sidebar-body">
+              <div class="cw-lessons-scroll">
+                <div id="cw-lessons" class="list-group list-group-flush"></div>
+              </div>
+            </div>
+            <div class="cw-sidebar-foot">
+              <button type="button" id="cw-open-quiz" class="btn btn-outline-success btn-block" disabled>
+                <span class="fa fa-pencil-square-o mr-1" aria-hidden="true"></span>
+                Làm bài tập
+              </button>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="modal fade" id="cw-quiz-modal" tabindex="-1" role="dialog" aria-labelledby="cw-quiz-modal-title" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
+      <div class="modal-content">
+        <div class="modal-header py-3">
+          <h5 class="modal-title" id="cw-quiz-modal-title">
+            <span class="fa fa-check-square-o text-success mr-2"></span>Làm bài tập
+          </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Đóng">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <small class="text-muted d-block mb-2">Điểm được lưu mỗi lần nộp bài — làm lại sẽ tạo thêm một lần làm mới.</small>
+          <div id="cw-quiz-stats" class="small text-muted mb-3"></div>
+          <div id="cw-quiz-content"></div>
+        </div>
+        <div class="modal-footer flex-wrap bg-light border-top">
+          <button type="button" id="cw-quiz-submit" class="btn btn-success rounded-pill px-4" style="display: none">Nộp bài (lưu điểm)</button>
+          <button type="button" class="btn btn-outline-secondary rounded-pill" data-dismiss="modal">Đóng</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth-nav.js"></script>
+  <script src="https://cdn.socket.io/4.8.1/socket.io.min.js" crossorigin="anonymous"></script>
+  <script src="js/chat-widget.js"></script>
+  <script src="js/course-watch.js"></script>
+</body>
+</html>

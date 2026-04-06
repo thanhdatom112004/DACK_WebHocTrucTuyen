@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Chat hỗ trợ - Admin</title>
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body class="admin-body">
+  <nav class="navbar navbar-expand-lg navbar-dark admin-navbar">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="admin-dashboard.html">
+        <span class="admin-brand-mark"><i class="fa fa-shield"></i></span>
+        <span class="text-white"><span class="font-weight-bold">Study</span>Lab<small class="admin-brand-sub">Quản trị</small></span>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Menu">
+        <span class="fa fa-bars text-white"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="ftco-nav">
+        <ul class="navbar-nav flex-wrap mx-lg-auto mt-2 mt-lg-0 admin-nav-links">
+          <li class="nav-item"><a class="nav-link" href="admin-dashboard.html">Tổng quan</a></li>
+          <li class="nav-item"><a class="nav-link" href="admin-courses.html">Khóa học</a></li>
+          <li class="nav-item"><a class="nav-link" href="admin-categories.html">Category</a></li>
+          <li class="nav-item"><a class="nav-link" href="admin-users.html">Học viên</a></li>
+          <li class="nav-item"><a class="nav-link" href="admin-lesson-quizzes.html">Quiz</a></li>
+          <li class="nav-item"><a class="nav-link" href="admin-payment-orders.html">Thanh toán</a></li>
+          <li class="nav-item active"><a class="nav-link" href="admin-chat.html">Chat</a></li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a href="index.html" class="nav-link text-white-50" title="Trang chủ"><i class="fa fa-home"></i></a></li>
+          <li class="nav-item"><a href="login.html" class="nav-link">Đăng nhập</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="ftco-section">
+    <div class="container">
+      <div id="achat-alert" class="alert d-none" role="alert"></div>
+      <div class="admin-page-header">
+        <h1 class="admin-page-title">Chat hỗ trợ</h1>
+        <p class="admin-breadcrumb"><a href="admin-dashboard.html">Tổng quan</a> / Chat (Socket.IO)</p>
+      </div>
+
+      <div class="admin-chat-shell">
+        <div class="admin-chat-users">
+          <div class="p-3 border-bottom bg-light">
+            <strong class="small text-uppercase text-muted">Học viên đã nhắn hỗ trợ</strong>
+            <input type="search" id="achat-filter" class="form-control form-control-sm mt-2" placeholder="Lọc theo tên..." />
+          </div>
+          <div class="list-group list-group-flush flex-grow-1 overflow-auto" id="achat-user-list"></div>
+        </div>
+        <div class="admin-chat-pane">
+          <div class="p-3 border-bottom bg-white">
+            <strong id="achat-peer-title">Chọn một tài khoản để bắt đầu</strong>
+            <div class="small text-muted" id="achat-peer-sub"></div>
+          </div>
+          <div class="admin-chat-messages" id="achat-messages"></div>
+          <div class="admin-chat-input">
+            <div id="achat-pending" class="achat-pending d-none border-bottom bg-light px-2 py-2"></div>
+            <form id="achat-form" class="form-row align-items-end">
+              <div class="col">
+                <textarea id="achat-text" class="form-control" rows="2" placeholder="Nhập tin nhắn" disabled></textarea>
+              </div>
+              <div class="col-auto">
+                <label class="btn btn-outline-secondary btn-sm mb-0">
+                  <i class="fa fa-image"></i>
+                  <input type="file" id="achat-file" accept="image/*" class="d-none" disabled />
+                </label>
+              </div>
+              <div class="col-auto">
+                <button type="submit" class="btn btn-primary" id="achat-send" disabled>Gửi</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="https://cdn.socket.io/4.8.1/socket.io.min.js" crossorigin="anonymous"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth-nav.js"></script>
+  <script src="js/admin-guard.js"></script>
+  <script src="js/admin-chat.js"></script>
+</body>
+</html>
