@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Giỏ đăng ký - StudyLab</title>
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="css/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/owl.theme.default.min.css">
+	<link rel="stylesheet" href="css/magnific-popup.css">
+	<link rel="stylesheet" href="css/bootstrap-datepicker.css">
+	<link rel="stylesheet" href="css/jquery.timepicker.css">
+	<link rel="stylesheet" href="css/flaticon.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/chat-widget.css">
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+		<div class="container">
+			<a class="navbar-brand" href="index.html"><span>Study</span>Lab</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav">
+				<span class="oi oi-menu"></span> Menu
+			</button>
+			<div class="collapse navbar-collapse" id="ftco-nav">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item"><a href="index.html" class="nav-link">Trang chủ</a></li>
+					<li class="nav-item"><a href="course.html" class="nav-link">Khóa học</a></li>
+					<li class="nav-item active"><a href="cart.html" class="nav-link">Giỏ đăng ký</a></li>
+					<li class="nav-item"><a href="about.html" class="nav-link">Giới thiệu</a></li>
+					<li class="nav-item"><a href="contact.html" class="nav-link">Liên hệ</a></li>
+					<li class="nav-item"><a href="login.html" class="nav-link">Đăng nhập</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_2.jpg');">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row no-gutters slider-text align-items-end justify-content-center">
+				<div class="col-md-9 ftco-animate pb-5 text-center">
+					<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Trang chủ</a></span> <span>Giỏ đăng ký</span></p>
+					<h1 class="mb-0 bread">Giỏ đăng ký khóa học</h1>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="ftco-section">
+		<div class="container">
+			<div id="cart-alert" class="alert d-none mb-3" role="alert"></div>
+			<p id="cart-hint" class="text-muted"></p>
+			<div class="table-responsive bg-white p-3 rounded shadow-sm">
+				<table class="table table-hover mb-0">
+					<thead>
+						<tr>
+							<th style="width:80px;">Hình</th>
+							<th>Khóa học</th>
+							<th>Đơn giá (lúc thêm)</th>
+							<th>SL</th>
+							<th>Thành tiền</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody id="cart-tbody">
+						<tr><td colspan="6" class="text-muted">Đang tải...</td></tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="card mt-4 border-0 shadow-sm" id="cart-checkout-card" style="display:none;">
+				<div class="card-body d-flex flex-wrap justify-content-between align-items-center">
+					<div>
+						<strong>Tổng thanh toán:</strong>
+						<span id="cart-total-display" class="text-primary h5 mb-0 ml-2">0đ</span>
+					</div>
+					<a href="payment.html" class="btn btn-lg btn-primary" id="cart-checkout-btn-link">
+						<span class="fa fa-credit-card mr-2"></span> Thanh toán chuyển khoản
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<footer class="ftco-footer ftco-no-pt">
+		<div class="container">
+			<div class="row mb-5">
+				<div class="col-md pt-5">
+					<div class="ftco-footer-widget pt-md-5 mb-4">
+						<h2 class="ftco-heading-2">StudyLab</h2>
+						<p>Sau khi thêm khóa vào giỏ, bạn thanh toán chuyển khoản; admin xác nhận để mở quyền học trong mục Khóa học đã mua.</p>
+					</div>
+				</div>
+				<div class="col-md pt-5">
+					<div class="ftco-footer-widget pt-md-5 mb-4 ml-md-5">
+						<h2 class="ftco-heading-2">Liên kết nhanh</h2>
+						<ul class="list-unstyled">
+							<li><a href="course.html" class="py-2 d-block">Khóa học</a></li>
+							<li><a href="payment.html" class="py-2 d-block">Thanh toán</a></li>
+							<li><a href="my-courses.html" class="py-2 d-block">Khóa học của tôi</a></li>
+							<li><a href="contact.html" class="py-2 d-block">Liên hệ</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<p>© <script>document.write(new Date().getFullYear());</script> StudyLab — Đồ án học trực tuyến. Giao diện dựa trên <a href="https://colorlib.com" target="_blank" rel="noopener">Colorlib</a>.</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery-migrate-3.0.1.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.easing.1.3.js"></script>
+	<script src="js/jquery.waypoints.min.js"></script>
+	<script src="js/jquery.stellar.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/jquery.animateNumber.min.js"></script>
+	<script src="js/bootstrap-datepicker.js"></script>
+	<script src="js/scrollax.min.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/api.js"></script>
+	<script src="js/auth-nav.js"></script>
+	<script src="https://cdn.socket.io/4.8.1/socket.io.min.js" crossorigin="anonymous"></script>
+	<script src="js/chat-widget.js"></script>
+	<script src="js/cart-page.js"></script>
+</body>
+</html>
+
