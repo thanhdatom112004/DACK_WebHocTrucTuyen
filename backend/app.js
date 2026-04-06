@@ -45,6 +45,7 @@ app.get("/api/health", (req, res) => {
 });
 
 app.use("/api/auth", require("./routes/auth"));
+app.use("/api/categories", require("./routes/categories"));
 
 app.use(express.static(path.join(__dirname, "..", "OnlineLearningWeb")));
 
