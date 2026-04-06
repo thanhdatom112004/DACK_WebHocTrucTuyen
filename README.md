@@ -65,6 +65,13 @@
 - **`GET/DELETE /api/users`** — ADMIN (danh sách / xóa mềm), dùng với **`admin-users.html`**.
 - Frontend: **`profile.html`**, **`js/profile-page.js`**, **`forgot-password.html`**, **`js/forgot-password.js`**, **`login.html`** link quên mật khẩu.
 
+## Feature #9 — Chat (`feature/09-chat`)
+
+- **`/api/messages`** — `POST /` (JSON hoặc multipart ảnh), `GET /conversations`, `GET /with/:userId`, `GET /admins`, `POST /:id/recall`; **`/support/config`**, **`/support/thread`**, **`/support/inbox`** (ADMIN).
+- **`socket.io`** — `bin/www.js` gọi **`SocketServer`**: sự kiện `private_message`, `new_message`, room `user:*` và `admins`.
+- Model **`messages`**, **`controllers/messages`**, **`utils/chatHandler.js`**, **`utils/messageSocketEmit.js`**, **`utils/supportUser.js`** (inbox hỗ trợ hoặc **`SUPPORT_USER_ID`** trong `.env`).
+- Frontend: **`js/chat-widget.js`** (Socket.IO client), **`admin-chat.html`** + **`js/admin-chat.js`**.
+
 ## Chạy
 
 1. `cd backend`

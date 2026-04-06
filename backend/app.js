@@ -52,6 +52,7 @@ app.use("/api/carts", require("./routes/carts"));
 app.use("/api/enrollments", require("./routes/enrollments"));
 app.use("/api/lesson-quizzes", require("./routes/lessonQuizzes"));
 app.use("/api/payment-orders", require("./routes/paymentOrders"));
+app.use("/api/messages", require("./routes/messages"));
 
 app.use(express.static(path.join(__dirname, "..", "OnlineLearningWeb")));
 
