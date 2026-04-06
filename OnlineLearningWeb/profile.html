@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Thông tin cá nhân - StudyLab</title>
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/animate.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
+  <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="css/jquery.timepicker.css">
+  <link rel="stylesheet" href="css/flaticon.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/chat-widget.css">
+  <style>
+    .pf-avatar-preview-wrap {
+      position: relative;
+      width: 120px;
+      height: 120px;
+      flex-shrink: 0;
+    }
+    #pf-avatar-preview {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      background: #f1f5f9;
+      z-index: 2;
+      display: none;
+    }
+    #pf-avatar-preview.is-visible {
+      display: block;
+    }
+    #pf-avatar-preview-ph {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+    #pf-avatar-preview-ph.is-hidden {
+      visibility: hidden;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><span>Study</span>Lab</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav">
+        <span class="oi oi-menu"></span> Menu
+      </button>
+      <div class="collapse navbar-collapse" id="ftco-nav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a href="index.html" class="nav-link">Trang chủ</a></li>
+          <li class="nav-item"><a href="course.html" class="nav-link">Khóa học</a></li>
+          <li class="nav-item"><a href="cart.html" class="nav-link">Giỏ đăng ký</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link">Giới thiệu</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Liên hệ</a></li>
+          <li class="nav-item"><a href="login.html" class="nav-link">Đăng nhập</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_2.jpg');">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row no-gutters slider-text align-items-end justify-content-center">
+        <div class="col-md-9 ftco-animate pb-5 text-center">
+          <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Trang chủ</a></span> <span>Thông tin cá nhân</span></p>
+          <h1 class="mb-0 bread">Thông tin cá nhân</h1>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ftco-section">
+    <div class="container">
+      <div id="profile-alert" class="alert d-none" role="alert"></div>
+      <div class="row">
+        <div class="col-md-4 mb-3 mb-md-0">
+          <div class="card shadow-sm border-0 p-4 text-center">
+            <div
+              class="rounded-circle bg-light mx-auto d-flex align-items-center justify-content-center overflow-hidden"
+              style="width:92px;height:92px;"
+              id="pf-avatar-wrap"
+            >
+              <img id="pf-avatar-img" src="" alt="" class="d-none" style="width:100%;height:100%;object-fit:cover;" />
+              <span class="fa fa-user" id="pf-avatar-icon" style="font-size:44px;color:#6c63ff;"></span>
+            </div>
+
+            <h4 class="mt-3 mb-1" id="pf-username">-</h4>
+            <div class="text-muted small" id="pf-email">-</div>
+            <div class="mt-2">
+              <span class="badge badge-pill d-none" id="pf-email-badge" title="Trạng thái xác thực email">-</span>
+            </div>
+
+            <div class="d-flex justify-content-center flex-wrap mt-3">
+              <span class="badge badge-pill badge-primary mr-2 mb-2" id="pf-role">-</span>
+              <span class="badge badge-pill badge-secondary mb-2" id="pf-status">-</span>
+            </div>
+
+            <div class="mt-4">
+              <a class="btn btn-outline-primary btn-sm" href="cart.html">Giỏ hàng</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-8">
+          <div class="card shadow-sm border-0 p-4 mb-4">
+            <h5 class="mb-3">Cập nhật thông tin</h5>
+            <form id="profile-form">
+              <div class="form-group">
+                <label for="pf-email-ro">Email</label>
+                <input type="email" class="form-control bg-light" id="pf-email-ro" readonly />
+                <small class="text-muted">Email không thể thay đổi.</small>
+              </div>
+              <div class="form-group">
+                <label for="pf-username-input">Tên đăng nhập</label>
+                <input type="text" class="form-control" id="pf-username-input" required autocomplete="username" />
+              </div>
+              <div class="form-group">
+                <label for="pf-fullname">Họ và tên</label>
+                <input type="text" class="form-control" id="pf-fullname" placeholder="Họ tên hiển thị" autocomplete="name" />
+              </div>
+              <div class="form-group">
+                <label>Ảnh đại diện</label>
+                <div class="d-flex flex-wrap align-items-start">
+                  <div class="pf-avatar-preview-wrap mr-3 mb-2">
+                    <img
+                      id="pf-avatar-preview"
+                      src=""
+                      alt="Xem trước avatar"
+                      class="rounded-circle border shadow-sm"
+                    />
+                    <div
+                      id="pf-avatar-preview-ph"
+                      class="rounded-circle border bg-light d-flex align-items-center justify-content-center"
+                      style="width: 120px; height: 120px"
+                    >
+                      <span class="fa fa-user text-muted" style="font-size: 48px"></span>
+                    </div>
+                  </div>
+                  <div class="flex-grow-1" style="min-width: 200px">
+                    <input type="file" id="pf-avatar-file" accept="image/*" class="d-none" />
+                    <button type="button" class="btn btn-outline-secondary btn-sm" id="pf-avatar-pick">
+                      <span class="fa fa-folder-open mr-1"></span>Chọn ảnh
+                    </button>
+                    <button type="button" class="btn btn-primary btn-sm ml-1" id="pf-avatar-upload" disabled>
+                      <span class="fa fa-cloud-upload mr-1"></span>Tải lên
+                    </button>
+                    <p class="small text-muted mt-2 mb-2">JPG, PNG, GIF · tối đa 5MB. Chọn ảnh để xem trước, rồi bấm Tải lên.</p>
+                    <label for="pf-avatar-url" class="small text-muted d-block mb-1">Hoặc dán URL ảnh</label>
+                    <input type="text" class="form-control form-control-sm" id="pf-avatar-url" placeholder="https://... hoặc để trống" />
+                  </div>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary">Lưu thông tin</button>
+            </form>
+          </div>
+
+          <div class="card shadow-sm border-0 p-4 mb-4" id="pf-email-verify-card">
+            <h5 class="mb-3">Xác thực email</h5>
+            <p class="text-muted small mb-3">
+              Email đăng nhập: <strong id="pf-ev-email-copy">-</strong>
+            </p>
+            <div id="pf-ev-verified" class="d-none">
+              <div class="alert alert-success mb-0 py-2">
+                <span class="fa fa-check-circle mr-1"></span> Email đã được xác thực.
+              </div>
+            </div>
+            <div id="pf-ev-pending">
+              <p class="text-muted small">
+                Bấm <strong>Gửi mã OTP</strong> để nhận mã 6 số qua email, sau đó nhập mã và bấm <strong>Xác nhận</strong>.
+              </p>
+              <div class="form-row">
+                <div class="col-sm-4 mb-2 mb-sm-0">
+                  <button type="button" class="btn btn-outline-primary btn-block btn-sm" id="pf-ev-send">
+                    <span class="fa fa-envelope-o mr-1"></span>Gửi mã OTP
+                  </button>
+                </div>
+                <div class="col-sm-4 mb-2 mb-sm-0">
+                  <input
+                    type="text"
+                    class="form-control form-control-sm"
+                    id="pf-ev-otp"
+                    maxlength="6"
+                    inputmode="numeric"
+                    placeholder="Mã 6 số"
+                    autocomplete="one-time-code"
+                  />
+                </div>
+                <div class="col-sm-4">
+                  <button type="button" class="btn btn-primary btn-block btn-sm" id="pf-ev-confirm">Xác nhận</button>
+                </div>
+              </div>
+              <p class="small text-muted mt-2 mb-0" id="pf-ev-hint"></p>
+            </div>
+          </div>
+
+          <div class="card shadow-sm border-0 p-4">
+            <h5 class="mb-3">Đổi mật khẩu</h5>
+            <form id="password-form">
+              <div class="form-group">
+                <label for="pf-old-pass">Mật khẩu hiện tại</label>
+                <input type="password" class="form-control" id="pf-old-pass" required autocomplete="current-password" />
+              </div>
+              <div class="form-group">
+                <label for="pf-new-pass">Mật khẩu mới</label>
+                <input type="password" class="form-control" id="pf-new-pass" required minlength="8" autocomplete="new-password" />
+                <small class="text-muted">Tối thiểu 8 ký tự.</small>
+              </div>
+              <div class="form-group">
+                <label for="pf-new-pass2">Nhập lại mật khẩu mới</label>
+                <input type="password" class="form-control" id="pf-new-pass2" required minlength="8" autocomplete="new-password" />
+              </div>
+              <button type="submit" class="btn btn-outline-primary">Đổi mật khẩu</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="ftco-footer ftco-no-pt">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-md pt-5">
+          <div class="ftco-footer-widget pt-md-5 mb-4">
+            <h2 class="ftco-heading-2">StudyLab</h2>
+            <p>Cập nhật hồ sơ và mật khẩu tại đây. Khóa đã mua nằm trong mục Khóa học đã mua.</p>
+          </div>
+        </div>
+        <div class="col-md pt-5">
+          <div class="ftco-footer-widget pt-md-5 mb-4 ml-md-5">
+            <h2 class="ftco-heading-2">Liên kết</h2>
+            <ul class="list-unstyled">
+              <li><a href="my-courses.html" class="py-2 d-block">Khóa học đã mua</a></li>
+              <li><a href="cart.html" class="py-2 d-block">Giỏ đăng ký</a></li>
+              <li><a href="contact.html" class="py-2 d-block">Liên hệ</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <p>© <script>document.write(new Date().getFullYear());</script> StudyLab — Đồ án học trực tuyến. Giao diện dựa trên <a href="https://colorlib.com" target="_blank" rel="noopener">Colorlib</a>.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth-nav.js"></script>
+  <script src="https://cdn.socket.io/4.8.1/socket.io.min.js" crossorigin="anonymous"></script>
+  <script src="js/chat-widget.js"></script>
+  <script src="js/profile-page.js"></script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Admin - Quiz / Flashcard theo bài học</title>
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body class="admin-body">
+  <nav class="navbar navbar-expand-lg navbar-dark admin-navbar">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="admin-dashboard.html">
+        <span class="admin-brand-mark"><i class="fa fa-shield"></i></span>
+        <span class="text-white"><span class="font-weight-bold">Study</span>Lab<small class="admin-brand-sub">Quản trị</small></span>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Menu">
+        <span class="fa fa-bars text-white"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="ftco-nav">
+        <ul class="navbar-nav flex-wrap mx-lg-auto mt-2 mt-lg-0 admin-nav-links">
+          <li class="nav-item"><a class="nav-link" href="admin-dashboard.html">Tổng quan</a></li>
+          <li class="nav-item"><a class="nav-link" href="admin-courses.html">Khóa học</a></li>
+          <li class="nav-item"><a class="nav-link" href="admin-categories.html">Category</a></li>
+          <li class="nav-item"><a class="nav-link" href="admin-users.html">Học viên</a></li>
+          <li class="nav-item active"><a class="nav-link" href="admin-lesson-quizzes.html">Quiz</a></li>
+          <li class="nav-item"><a class="nav-link" href="admin-payment-orders.html">Thanh toán</a></li>
+          <li class="nav-item"><a class="nav-link" href="admin-chat.html">Chat</a></li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a href="index.html" class="nav-link text-white-50" title="Trang chủ"><i class="fa fa-home"></i></a></li>
+          <li class="nav-item"><a href="login.html" class="nav-link">Đăng nhập</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="ftco-section">
+    <div class="container">
+      <div id="alq-alert" class="alert d-none" role="alert"></div>
+      <div class="admin-page-header">
+        <h1 class="admin-page-title">Quiz &amp; flashcard theo bài học</h1>
+        <p class="admin-breadcrumb"><a href="admin-dashboard.html">Tổng quan</a> / Quiz</p>
+      </div>
+
+      <div class="admin-hint">
+        Chọn khóa học và bài học, thêm câu trắc nghiệm (MCQ) hoặc flashcard. Học viên làm bài tại trang
+        <strong>Xem bài học</strong> — mỗi lần nộp lưu một bản ghi điểm (có thể làm lại nhiều lần).
+      </div>
+
+      <div class="card admin-card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Chọn khóa học &amp; bài học</h5>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label>Khóa học</label>
+              <select id="alq-course" class="form-control">
+                <option value="">-- Chọn --</option>
+              </select>
+            </div>
+            <div class="form-group col-md-6">
+              <label>Bài học (video)</label>
+              <select id="alq-lesson" class="form-control" disabled>
+                <option value="">-- Chọn khóa học trước --</option>
+              </select>
+            </div>
+          </div>
+          <button type="button" class="btn btn-outline-danger btn-sm rounded-pill" id="alq-delete-quiz" disabled>
+            Xóa quiz của bài này
+          </button>
+        </div>
+      </div>
+
+      <div class="card admin-card" id="alq-editor" style="display: none">
+        <div class="card-body">
+          <h5 class="card-title">Nội dung câu hỏi</h5>
+          <div id="alq-items"></div>
+          <div class="mt-3">
+            <button type="button" class="btn btn-sm btn-outline-primary mr-2 rounded-pill" id="alq-add-mcq">+ Câu trắc nghiệm</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary rounded-pill" id="alq-add-fc">+ Flashcard</button>
+          </div>
+          <button type="button" class="btn btn-success mt-4 rounded-pill px-4" id="alq-save">Lưu quiz</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth-nav.js"></script>
+  <script src="js/admin-guard.js"></script>
+  <script src="js/admin-lesson-quizzes.js"></script>
+</body>
+</html>
