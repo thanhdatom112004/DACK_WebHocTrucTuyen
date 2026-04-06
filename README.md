@@ -23,6 +23,16 @@
 - Model **`courses`** (tối thiểu) + **`utils/courseImageUrl`** phục vụ cascade khi xóa danh mục.
 - Frontend: **`admin-categories.html`** + **`js/admin-categories.js`**; **`course.html`** + **`js/course-list.js`** (lọc checkbox — cần **`GET /api/courses`** từ feature #4 để hiển thị đầy đủ).
 
+## Feature #4 — Khóa học & tài nguyên (clone từ `DACK_OnlineLearningWEB`)
+
+- **`GET /api/courses`** — danh sách khóa học (populate category).
+- **`GET /api/courses/:id`** — chi tiết khóa học.
+- **`POST /api/courses`** (ADMIN) — tạo khóa + bản ghi **inventory** (transaction).
+- **`PUT` / `DELETE /api/courses/:id`** (ADMIN).
+- **`POST /api/courses/upload-image`** (ADMIN, multipart `file`) — lưu **`/uploads/courses/`**.
+- **`utils/uploadHandler.js`**, **`utils/titleHandler.js`**, model **`inventories`**.
+- Frontend: **`admin-courses.html`** + **`js/admin-courses.js`**; **`course.html`** đã tải được danh sách qua **`OLApi.courses()`**.
+
 ## Chạy
 
 1. `cd backend`
